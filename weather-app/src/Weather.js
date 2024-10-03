@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useTranslation } from "react-i18next"; // Import i18next
+import { useTranslation } from "react-i18next";
 import {
   Box,
   TextField,
@@ -33,10 +33,9 @@ const Weather = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [darkMode, setDarkMode] = useState(false);
-  const { t, i18n } = useTranslation(); // Hook z i18n
+  const { t, i18n } = useTranslation();
 
-  const apiKey = "78ba5d09f6d157e5f7abc3c0f069544d"; // Wstaw swój klucz API
-
+  const apiKey = "78ba5d09f6d157e5f7abc3c0f069544d";
   const getWeather = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -62,7 +61,7 @@ const Weather = () => {
               sx={{
                 fontSize: 80,
                 color: darkMode ? "#f39c12" : "#f1c40f",
-                animation: "rotate 10s linear infinite", // Animacja obracania
+                animation: "rotate 10s linear infinite",
               }}
             />
           </Grow>
@@ -74,7 +73,7 @@ const Weather = () => {
               sx={{
                 fontSize: 80,
                 color: darkMode ? "#7f8c8d" : "#bdc3c7",
-                animation: "fade 5s ease-in-out infinite", // Animacja migotania
+                animation: "fade 5s ease-in-out infinite",
               }}
             />
           </Grow>
@@ -86,7 +85,7 @@ const Weather = () => {
               sx={{
                 fontSize: 80,
                 color: darkMode ? "#3498db" : "#2980b9",
-                animation: "bounce 1.5s infinite", // Animacja odbijania
+                animation: "bounce 1.5s infinite",
               }}
             />
           </Grow>
@@ -98,7 +97,7 @@ const Weather = () => {
               sx={{
                 fontSize: 80,
                 color: darkMode ? "#ecf0f1" : "#95a5a6",
-                animation: "spin 3s linear infinite", // Animacja wirowania
+                animation: "spin 3s linear infinite",
               }}
             />
           </Grow>
@@ -110,7 +109,7 @@ const Weather = () => {
               sx={{
                 fontSize: 80,
                 color: darkMode ? "#34495e" : "#2c3e50",
-                animation: "pulse 2s infinite", // Animacja pulsowania
+                animation: "pulse 2s infinite",
               }}
             />
           </Grow>
@@ -129,12 +128,10 @@ const Weather = () => {
     }
   };
 
-  // Funkcja przełączania trybu jasny/ciemny
   const toggleDarkMode = () => {
     setDarkMode((prevMode) => !prevMode);
   };
 
-  // Funkcja zmiany języka (z EN na PL i odwrotnie)
   const toggleLanguage = () => {
     const newLang = i18n.language === "en" ? "pl" : "en";
     i18n.changeLanguage(newLang);
@@ -166,10 +163,9 @@ const Weather = () => {
           color: darkMode ? "#fff" : "#2c3e50",
           width: "300px",
           position: "relative",
-          animation: "fadeIn 1s", // Dodana animacja fadeIn
+          animation: "fadeIn 1s",
         }}
       >
-        {/* Przełączniki języka i trybu jasny/ciemny */}
         <Box
           sx={{
             position: "absolute",
@@ -179,21 +175,19 @@ const Weather = () => {
             alignItems: "center",
           }}
         >
-          {/* Przełącznik trybu jasny/ciemny */}
           <IconButton
             onClick={toggleDarkMode}
             sx={{
               color: darkMode ? "#f39c12" : "#2980b9",
-              transition: "transform 0.5s ease", // Animacja przycisku
+              transition: "transform 0.5s ease",
               "&:hover": {
-                transform: "rotate(360deg)", // Obrót na hover
+                transform: "rotate(360deg)",
               },
             }}
           >
             {darkMode ? <Brightness2 /> : <WbSunnyOutlined />}
           </IconButton>
 
-          {/* Pogrubiony tekst zmiany języka */}
           <Typography
             onClick={toggleLanguage}
             sx={{
@@ -201,14 +195,13 @@ const Weather = () => {
               fontWeight: "bold",
               ml: 1,
               color: darkMode ? "#f39c12" : "#2980b9",
-              animation: "pulse 2s infinite", // Animacja pulsowania tekstu
+              animation: "pulse 2s infinite",
             }}
           >
             {i18n.language === "en" ? "PL" : "EN"}{" "}
           </Typography>
         </Box>
 
-        {/* Nazwa aplikacji */}
         <Typography
           variant="h4"
           sx={{
@@ -216,19 +209,18 @@ const Weather = () => {
             marginBottom: "20px",
             marginTop: "20px",
             color: darkMode ? "#f1c40f" : "#3498db",
-            animation: "fadeInUp 1s ease-in-out", // Animacja pojawiania się tekstu
+            animation: "fadeInUp 1s ease-in-out",
           }}
         >
           {t("Weather App")}
         </Typography>
 
-        {/* Formularz do wyszukiwania */}
         <form onSubmit={getWeather}>
           <Fade in={true} timeout={1000}>
             <Box sx={{ display: "flex", alignItems: "center", mb: 3 }}>
               <TextField
                 fullWidth
-                placeholder={t("Enter city")} // Tłumaczenie placeholdera
+                placeholder={t("Enter city")}
                 variant="outlined"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
@@ -238,11 +230,11 @@ const Weather = () => {
                     ? "#34495e"
                     : "rgba(255, 255, 255, 0.8)",
                   color: "#fff",
-                  border: "none", // Usunięcie obramowania
+                  border: "none",
                   "& input": {
-                    color: darkMode ? "#fff" : "#2c3e50", // Kolor tekstu
+                    color: darkMode ? "#fff" : "#2c3e50",
                   },
-                  animation: "scaleUp 0.5s ease-in-out", // Animacja powiększania
+                  animation: "scaleUp 0.5s ease-in-out",
                 }}
               />
               <IconButton
@@ -262,7 +254,6 @@ const Weather = () => {
           </Fade>
         </form>
 
-        {/* Wyświetlanie pogody */}
         {loading ? (
           <CircularProgress sx={{ color: "#fff" }} />
         ) : (
@@ -275,7 +266,7 @@ const Weather = () => {
                   fontWeight: "bold",
                   fontSize: "50px",
                   marginTop: "10px",
-                  animation: "zoomIn 1s ease-in-out", // Animacja zoomu
+                  animation: "zoomIn 1s ease-in-out",
                 }}
               >
                 {`${weatherData.main.temp}°C`}
@@ -297,7 +288,7 @@ const Weather = () => {
                         color: darkMode ? "#00d9ff" : "#3498db",
                         fontSize: "30px",
                         marginRight: "5px",
-                        animation: "drop 1s ease-in-out infinite", // Animacja kropli
+                        animation: "drop 1s ease-in-out infinite",
                       }}
                     />
                     {`${weatherData.main.humidity}%`}
@@ -318,7 +309,7 @@ const Weather = () => {
                         color: darkMode ? "#a0d6f6" : "#3498db",
                         fontSize: "30px",
                         marginRight: "5px",
-                        animation: "wind 1s ease-in-out infinite", // Animacja wiatru
+                        animation: "wind 1s ease-in-out infinite",
                       }}
                     />
                     {`${weatherData.wind.speed} km/h`}
