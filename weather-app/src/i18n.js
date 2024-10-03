@@ -12,8 +12,8 @@ i18n.use(initReactI18next).init({
       translation: pl,
     },
   },
-  lng: "pl", // Domyślny język
-  fallbackLng: "en", // Język zapasowy
+  lng: "pl",
+  fallbackLng: "en",
   interpolation: {
     escapeValue: false,
   },
