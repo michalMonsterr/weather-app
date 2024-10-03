@@ -1,0 +1,9 @@
+{
+  "Weather App": "WeatherNow",
+  "Enter city": "Enter city",
+  "Search": "Search",
+  "Humidity": "Humidity",
+  "Wind Speed": "Wind Speed",
+  "Check Weather": "Check Weather",
+  "Failed to find city": "Failed to find city. Try again."
+}

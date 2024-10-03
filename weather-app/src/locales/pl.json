@@ -1,0 +1,9 @@
+{
+  "Weather App": "WeatherNow",
+  "Enter city": "Wpisz miasto",
+  "Search": "Szukaj",
+  "Humidity": "Wilgotność",
+  "Wind Speed": "Prędkość wiatru",
+  "Check Weather": "Sprawdź pogodę",
+  "Failed to find city": "Nie udało się znaleźć miasta. Spróbuj ponownie."
+}
